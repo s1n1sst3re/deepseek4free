@@ -1,49 +1,49 @@
-# Fragment Username Checker
-
-This Python script checks the availability of 5-character usernames on Fragment.com (the platform for Telegram username auctions).
-
-## Features
-
-- Generates all possible 5-character usernames using lowercase letters (a-z) and digits (0-9)
-- Checks each username's availability on Fragment.com
-- Identifies whether a username is:
-  - Available (redirects to search page, meaning it doesn't exist)
-  - In auction (has a username page with auction details)
-  - Taken (otherwise)
-
-## How It Works
-
-The script works by:
-
-1. Making HTTP requests to `https://fragment.com/username/{username}`
-2. Checking the response URL and content:
-   - If the URL changes to `https://fragment.com/?query={username}`, the username doesn't exist and is available
-   - If the URL stays as `https://fragment.com/username/{username}` and contains auction-related terms, it's in auction
-   - Otherwise, it's considered taken
-
-## Usage
-
-```bash
-python3 fragment_username_checker.py
-```
-
-The script will:
-- Generate and check 5-character usernames (a-z, 0-9)
-- Show availability status for each username
-- Limit to 10 usernames by default for demonstration
-
-## Important Notes
-
-- There are 36^5 = 60,466,176 possible 5-character usernames
-- Checking all usernames would take a very long time
-- Be respectful of Fragment.com's servers by not making too many requests too quickly
-- The script includes a 0.5 second delay between requests
-
-## Requirements
-
-- Python 3.x
-- requests library
-
-## Disclaimer
-
-This script is for educational purposes only. Please use responsibly and respect Fragment.com's terms of service and rate limits.
+     1	# Проверка доступности имени пользователя на Fragment
+     2	
+     3	Этот Python-скрипт проверяет доступность 5-символьных имен пользователей на Fragment.com (платформе для аукционов имен пользователей Telegram).
+     4	
+     5	## Возможности
+     6	
+     7	- Генерирует все возможные 5-символьные имена пользователей, используя строчные буквы (a-z) и цифры (0-9)
+     8	- Проверяет доступность каждого имени пользователя на Fragment.com
+     9	- Определяет, является ли имя пользователя:
+    10	  - Доступным (перенаправляет на страницу поиска, что означает, что оно не существует)
+    11	  - Предметом аукциона (имеет страницу с информацией об аукционе)
+    12	  - Занятым (в остальных случаях)
+    13	
+    14	## Как это работает
+    15	
+    16	Скрипт работает следующим образом:
+    17	
+    18	1. Выполняет HTTP-запросы к `https://fragment.com/username/{username}`
+    19	2. Проверяет URL-адрес ответа и содержимое:
+    20	   - Если URL-адрес изменяется на `https://fragment.com/?query={username}`, имя пользователя не существует и доступно
+    21	   - Если URL-адрес остается `https://fragment.com/username/{username}` и содержит термины, связанные с аукционом, оно участвует в аукционе
+    22	   - В противном случае, оно считается занятым
+    23	
+    24	## Использование
+    25	
+    26	```bash
+    27	python3 fragment_username_checker.py
+    28	```
+    29	
+    30	Скрипт:
+    31	- Сгенерирует и проверит 5-символьные имена пользователей (a-z, 0-9)
+    32	- Покажет статус доступности для каждого имени пользователя
+    33	- По умолчанию ограничивается 10 именами пользователей для демонстрации
+    34	
+    35	## Важные замечания
+    36	
+    37	- Существует 36^5 = 60 466 176 возможных 5-символьных имен пользователей
+    38	- Проверка всех имен пользователей займет очень много времени
+    39	- Уважайте серверы Fragment.com, не делая слишком много запросов слишком быстро
+    40	- Скрипт включает задержку 0,5 секунды между запросами
+    41	
+    42	## Требования
+    43	
+    44	- Python 3.x
+    45	- Библиотека requests
+    46	
+    47	## Отказ от ответственности
+    48	
+    49	Этот скрипт предназначен только для образовательных целей. Пожалуйста, используйте его ответственно и уважайте условия предоставления услуг и ограничения по частоте запросов Fragment.com.
